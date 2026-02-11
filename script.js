@@ -1,23 +1,23 @@
 function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
+    let humanScore = 0
+    let computerScore = 0
 
     function getComputerChoice() {
         const randomNumber = Math.floor(Math.random() * 3)
 
-        if (randomNumber === 0) return "rock";
-        if (randomNumber === 1) return "paper";
-        if (randomNumber === 2) return "scissors";
+        if (randomNumber === 0) return "rock"
+        if (randomNumber === 1) return "paper"
+        if (randomNumber === 2) return "scissors"
     }
 
     function getHumanChoice() {
-        return prompt("Enter your choice: rock, paper, scissors").toLowerCase();
+        return prompt("Enter your choice: rock, paper, scissors").toLowerCase()
     }
 
     function playRound(humanChoice, computerChoice) {
         if (humanChoice === computerChoice) {
             console.log(`Its a tie! Both choices are same ${humanChoice}`)
-            return;
+            return
         }
 
         if (
