@@ -33,16 +33,6 @@ function playGame() {
         }
 
     }
-
-    for (let i = 0; i < 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice())
-    }
-
-    if (humanScore > computerScore) {
-        alert(`You win! YourScore:${humanScore} --- ComputerScore:${computerScore}`)
-    } else {
-        alert(`You Lose! YourScore:${humanScore} --- ComputerScore:${computerScore}`)
-    }
 }
 
 playGame()
