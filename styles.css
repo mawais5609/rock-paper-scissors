@@ -51,6 +51,12 @@ h2 {
     font-weight: 1000;
     color: #ececec;
     border-radius: 99px;
+    transition: all 0.15s ease-in-out;
+}
+
+.buttons-container .buttons button:hover{
+    background-color: #ececec;
+    color: #8a1717;
 }
 
 .buttons-container .buttons{
@@ -58,6 +64,18 @@ h2 {
     gap: 30px;
     justify-content: center;
     align-items: center;
+}
+
+.results{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+
+    font-size: 24px;
+    font-weight: 800;
+    color: #e0e0e0;
 }
 
 

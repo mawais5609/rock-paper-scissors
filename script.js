@@ -1,4 +1,15 @@
 function playGame() {
+    const buttons = document.querySelectorAll(".buttons > button")
+    const results = document.querySelector(".results")
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+            const targetValue = event.target.getAttribute("class")
+            playRound(targetValue, getComputerChoice())
+        })
+    })
+
+
     let humanScore = 0
     let computerScore = 0
 
@@ -10,13 +21,10 @@ function playGame() {
         if (randomNumber === 2) return "scissors"
     }
 
-    function getHumanChoice() {
-        return prompt("Enter your choice: rock, paper, scissors").toLowerCase()
-    }
-
     function playRound(humanChoice, computerChoice) {
         if (humanChoice === computerChoice) {
-            console.log(`Its a tie! Both choices are same ${humanChoice}`)
+            results.textContent = ""
+            results.textContent = `Its a tie! Both choices are same ${humanChoice}`
             return
         }
 
@@ -26,10 +34,22 @@ function playGame() {
             (humanChoice === "scissors" && computerChoice === "paper")
         ) {
             humanScore++
-            console.log(`You Win! ${humanChoice} beats ${computerChoice} --- YourScore:${humanScore} - ComputerScore:${computerScore}`)
+            results.textContent = ""
+            results.textContent = `You Win! ${humanChoice} beats ${computerChoice} --- 
+                                    YourScore:${humanScore} - ComputerScore:${computerScore}`
         } else {
             computerScore++
-            console.log(`You Lose! ${computerChoice} beats ${humanChoice} --- YourScore:${humanScore} - ComputerScore:${computerScore}`)
+            results.textContent = ""
+            results.textContent = `You Lose! ${computerChoice} beats ${humanChoice} --- 
+                                    YourScore:${humanScore} - ComputerScore:${computerScore}`
+        }
+
+        if (humanScore === 5 || computerScore === 5) {
+            const winner = humanScore === 5 ? "You Wins!" : "Computer Wins!"
+            results.textContent = ""
+            results.textContent = `${winner} --- YourScore:${humanScore} - ComputerScore:${computerScore}`
+            humanScore = 0
+            computerScore = 0
         }
 
     }
